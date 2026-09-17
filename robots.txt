@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sivexosoft.github.io/SivexoSoft/sitemap.xml
