@@ -64,4 +64,41 @@
       const kids = grid.querySelectorAll(g.children);
       if (!kids.length) return;
       gsap.to(kids, {
-        opacity: 1, y: 0, duration: 0.75, ease: '
+        opacity: 1, y: 0, duration: 0.75, ease: 'power3.out', stagger: 0.07,
+        scrollTrigger: hasST ? { trigger: grid, start: 'top 78%' } : undefined
+      });
+    });
+
+    // Stats counter-like reveal
+    const statsGrid = document.querySelector('.stats__grid');
+    if (statsGrid) {
+      gsap.to(statsGrid.querySelectorAll('.stat'), {
+        opacity: 1, y: 0, duration: 0.8, stagger: 0.08, ease: 'power3.out',
+        scrollTrigger: hasST ? { trigger: statsGrid, start: 'top 80%' } : undefined
+      });
+    }
+
+    // Parallax on about visual
+    if (hasST && !perf.isMobile) {
+      const av = document.querySelector('.about__visual-inner');
+      if (av) {
+        gsap.to(av, {
+          yPercent: -8,
+          ease: 'none',
+          scrollTrigger: { trigger: '.about__visual', start: 'top bottom', end: 'bottom top', scrub: true }
+        });
+      }
+    }
+  }
+
+  function init(){
+    // mark JS enabled
+    document.documentElement.classList.add('has-js');
+    // Small tick delay so ScrollTrigger calculates after loader
+    setTimeout(initGSAP, 400);
+  }
+
+  // Always also run fallback observer as backup so content never stays hidden
+  revealFallback();
+  window.addEventListener('load', init);
+})();
