@@ -1,0 +1,71 @@
+@media (max-width:1200px){
+  .services__grid{grid-template-columns:repeat(3,1fr)}
+}
+
+@media (max-width:1024px){
+  :root{--header-h:68px}
+  .nav{position:fixed;inset:var(--header-h) 0 auto 0;background:rgba(3,3,7,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--line);transform:translateY(-110%);transition:transform .5s var(--ease-out);padding:24px;z-index:99}
+  .nav.is-open{transform:translateY(0)}
+  .nav__list{flex-direction:column;align-items:stretch;gap:4px}
+  .nav__link{padding:16px 8px;font-size:16px;border-bottom:1px solid var(--line)}
+  .nav__link::after{display:none}
+  .menu-toggle{display:flex}
+  .header__cta{display:none}
+
+  .hero__grid{grid-template-columns:1fr;gap:60px;padding-top:20px}
+  .hero__visual{max-width:min(520px,90vw);justify-self:center;margin:0 auto}
+  .hero__title{font-size:clamp(52px,12vw,96px)}
+
+  .about__grid,.why__grid,.contact__grid{grid-template-columns:1fr}
+  .about__visual{max-width:520px;margin:0 auto;width:100%}
+  .why__visual{max-width:480px;margin:0 auto;width:100%}
+  .services__grid{grid-template-columns:repeat(2,1fr)}
+  .process__grid{grid-template-columns:repeat(2,1fr)}
+  .process__line{display:none}
+  .stats__grid{grid-template-columns:repeat(2,1fr);gap:32px}
+}
+
+@media (max-width:768px){
+  .container{padding:0 20px}
+  .hero{padding-top:calc(var(--header-h) + 20px);min-height:auto}
+  .hero__title{font-size:clamp(48px,14vw,80px);letter-spacing:-.04em}
+  .hero__lead{font-size:15px}
+  .hero__actions{flex-direction:column;align-items:stretch}
+  .hero__actions .btn{width:100%}
+  .hero__scroll{display:none}
+  .hero__visual{max-width:min(420px,86vw)}
+
+  .section{padding:70px 0}
+  .section__title{font-size:clamp(28px,7vw,42px)}
+  .services__grid{grid-template-columns:1fr;gap:16px}
+  .process__grid{grid-template-columns:1fr}
+  .stats__grid{grid-template-columns:repeat(2,1fr);gap:24px}
+  .stat__num{font-size:clamp(30px,9vw,44px)}
+  .why__features{grid-template-columns:1fr}
+  .contact__form{grid-template-columns:1fr;padding:22px}
+  .field--full{grid-column:auto}
+  .contact__form .btn,.contact__note{grid-column:auto}
+  .footer__bottom{flex-direction:column;text-align:center}
+}
+
+@media (max-width:480px){
+  .container{padding:0 16px}
+  .header__inner{padding:0 16px}
+  .hero__title{font-size:clamp(42px,15vw,68px)}
+  .eyebrow{font-size:11px;letter-spacing:.22em}
+  .btn{padding:13px 22px;font-size:13px}
+  .about__list li{gap:14px}
+  .contact__list li{padding:14px}
+  .footer__social a{width:40px;height:40px;font-size:14px}
+}
+
+@media (max-width:360px){
+  .hero__title{font-size:40px}
+  .stat__num{font-size:30px}
+}
+
+/* Touch devices — no cursor */
+@media (hover:none),(pointer:coarse){
+  .cursor{display:none!important}
+  body.has-cursor,body.has-cursor *{cursor:auto!important}
+}
